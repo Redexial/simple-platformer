@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://util/TileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://util/animation/playerAnim.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://util/scripts/Player.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 6.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 24, 24 )
+collision_friction = 0.0
+format = 1
+tile_data = PoolIntArray( 196614, 0, 3, 262150, 0, 327680, 262151, 0, 2, 327686, 0, 131072, 327687, 0, 262148, 327688, 0, 196610, 327690, 0, 196608, 327691, 0, 196610, 393230, 0, 196608, 393231, 0, 196609, 393232, 0, 196610, 458762, 0, 196608, 458763, 0, 196609, 458764, 0, 196610, 655359, 0, 0, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589830, 0, 1, 589831, 0, 1, 589832, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 589838, 0, 1, 589839, 0, 1, 589840, 0, 1, 589841, 0, 1, 589842, 0, 2, 720895, 0, 131072, 655360, 0, 131073, 655361, 0, 131073, 655362, 0, 131073, 655363, 0, 131073, 655364, 0, 131073, 655365, 0, 131073, 655366, 0, 131073, 655367, 0, 131073, 655368, 0, 131073, 655369, 0, 131073, 655370, 0, 131073, 655371, 0, 131073, 655372, 0, 131073, 655373, 0, 131073, 655374, 0, 131073, 655375, 0, 131073, 655376, 0, 131073, 655377, 0, 131073, 655378, 0, 131074 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 225, 18 )
+script = ExtResource( 3 )
+jump = 200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 2, 3 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+frames = ExtResource( 2 )
+animation = "dash"
+playing = true
